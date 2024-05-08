@@ -7,11 +7,11 @@ const ReservationSchema = new mongoose.Schema(
             ref: 'Room', 
             required: true },
 
-            startTime: { 
+        startTime: { 
                 type: Date, 
                 required: true },
                 
-            endTime: { 
+        endTime: { 
                 type: Date, 
                 required: true }
     },

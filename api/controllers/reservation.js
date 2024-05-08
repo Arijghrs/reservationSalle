@@ -1,6 +1,6 @@
 import Room from "../models/Room.js";
-import Reservation from "../models/Reservation.js";
 import { verifyToken } from "../utils/verifyToken.js";
+import Reservation from "../models/reservation.js";
 
 
 export const createReservation = async (req, res, next) => {
@@ -48,16 +48,23 @@ export const createReservation = async (req, res, next) => {
     }
 };
 
+
+
+
+
+
+
+
 function getDatesBetween(startTime, endTime) {
-    const dates = [];
-    let currentDate = new Date(startTime);
+  const dates = [];
+  let currentDate = new Date(startTime);
 
-    while (currentDate <= new Date(endTime)) {
-        dates.push(currentDate.toISOString().slice(0, 10));
-        currentDate.setDate(currentDate.getDate() + 1);
-    }
+  while (currentDate <= new Date(endTime)) {
+    dates.push(new Date(currentDate));
+      currentDate.setTime(currentDate.getTime() + 86400000); 
+  }
 
-    return dates;
+  return dates;
 }
 
 
